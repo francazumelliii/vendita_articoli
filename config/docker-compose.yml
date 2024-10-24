@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.39 # La versione di MySQL
+    container_name: mysql-db-vendite
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql 			# Password dell'utente root
+      MYSQL_DATABASE: vendita-articoli      # Database predefinito che verrà creato
+    ports:
+      - "3306:3306"                     	# Esponi la porta 3306 per connessioni locali
+    volumes:
+      - db_data:/var/lib/mysql           	# Memorizza i dati in un volume persistente
+
+volumes:
+  db_data:
